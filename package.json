@@ -1,7 +1,7 @@
 {
   "name": "data-4-countries-rest-api",
   "version": "0.1.0",
-  "homepage": "http://minhlong149.github.io/data-4-countries-rest-api",
+  "homepage": "http://minhlong149.github.io/rest-countries-api",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
