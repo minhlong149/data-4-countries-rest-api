@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/data-4-countries-rest-api/static/js/main.50224d33.js",
-    "index.html": "/data-4-countries-rest-api/index.html",
-    "main.50224d33.js.map": "/data-4-countries-rest-api/static/js/main.50224d33.js.map"
+    "main.js": "/rest-countries-api/static/js/main.50224d33.js",
+    "index.html": "/rest-countries-api/index.html",
+    "main.50224d33.js.map": "/rest-countries-api/static/js/main.50224d33.js.map"
   },
   "entrypoints": [
     "static/js/main.50224d33.js"
