@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Search } from "./Search";
-import { Countries } from "./Countries";
+import { Search } from "./components/Search";
+import { Countries } from "./components/Countries";
 
 function App() {
   // Fetch the Data from the endpoint all
@@ -13,7 +13,7 @@ function App() {
       const countriesURL = `https://restcountries.com/v3.1/all/`;
       const countriesResult = await fetch(countriesURL);
       const countriesData = await countriesResult.json();
-      setCountries(countriesData);
+      setCountries(countriesData.sort((a, b) => b.population - a.population));
       setCountriesLoaded(true);
     } catch (error) {
       setCountriesLoaded(true);
@@ -23,16 +23,25 @@ function App() {
 
   // Search & Filter
   const [query, setQuery] = useState("");
+  const [region, setRegion] = useState("");
 
   const updateQuery = (event) => {
     setQuery(event.target.value);
   };
 
+  const updateRegion = (event) => {
+    setRegion(event.target.value);
+  };
+
   const searchParam = ["name", "altSpellings", "translations"];
-  const filterCountries = countries.filter((country) =>
-    searchParam.some((param) =>
-      JSON.stringify(country[param]).toLowerCase().includes(query.toLowerCase())
-    )
+  const filterCountries = countries.filter(
+    (country) =>
+      (region === "" ? true : country.region === region) &&
+      searchParam.some((param) =>
+        JSON.stringify(country[param])
+          .toLowerCase()
+          .includes(query.toLowerCase())
+      )
   );
 
   useEffect(() => {
@@ -41,7 +50,11 @@ function App() {
 
   return (
     <>
-      <Search query={query} updateQuery={updateQuery} />
+      <Search
+        query={query}
+        updateQuery={updateQuery}
+        updateRegion={updateRegion}
+      />
       <Countries
         countries={filterCountries}
         error={countriesError}
