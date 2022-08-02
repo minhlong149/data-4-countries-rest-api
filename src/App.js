@@ -33,20 +33,24 @@ function App() {
     setRegion(event.target.value);
   };
 
-  const searchParam = ["name", "altSpellings", "translations"];
+  const searchParam = ["name", "altSpellings", "translations", "capital"];
   const filterCountries = countries.filter(
     (country) =>
       (region === "" ? true : country.region === region) &&
-      searchParam.some((param) =>
-        JSON.stringify(country[param])
-          .toLowerCase()
-          .includes(query.toLowerCase())
+      searchParam.some(
+        (param) =>
+          country[param] &&
+          JSON.stringify(country[param])
+            .toLowerCase()
+            .includes(query.toLowerCase())
       )
   );
 
   useEffect(() => {
     getCountriesData();
   }, []);
+
+  console.log(countries.filter((c) => !c.capital));
 
   return (
     <>

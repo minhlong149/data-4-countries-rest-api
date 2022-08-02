@@ -15,7 +15,7 @@ export const CountryInfo = ({ country }) => {
           <b>Region:</b> {country.region}{" "}
         </p>
         <p>
-          <b>Capital:</b> {country.capital}{" "}
+          <b>Capital:</b> {country.capital?.join(", ") || "None"}{" "}
         </p>
       </div>
     </div>
