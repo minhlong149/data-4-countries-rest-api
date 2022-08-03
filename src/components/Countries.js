@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CountryInfo from "./CountryInfo";
 
-const Countries = ({ countries, error, isLoaded, updateView }) => {
+const Countries = ({ countries, error, isLoaded, updateCountry }) => {
   const postPerSearch = 8;
   const [postNum, setPostNum] = useState(postPerSearch);
   const increasePostNum = () => {
@@ -36,13 +36,13 @@ const Countries = ({ countries, error, isLoaded, updateView }) => {
             <CountryInfo
               country={country}
               key={country.name.common}
-              updateView={updateView}
+              updateCountry={updateCountry}
             />
           ))
           .slice(0, postNum)}
         <div className="col-span-full text-center">
           <button
-            className=" bg-dark-element text-dark-text rounded-md py-3 px-6 "
+            className=" bg-dark-element text-dark-text rounded-md py-2 px-6 "
             onClick={increasePostNum}
           >
             View more

@@ -51,13 +51,13 @@ function App() {
     getCountriesData();
   }, []);
 
-  const [viewDetail, setViewDetail] = useState(false);
-  const updateView = (country) => {
-    setViewDetail(country);
+  const [country, setCountry] = useState(false);
+  const updateCountry = (country) => {
+    setCountry(country);
   };
 
-  if (viewDetail) {
-    return <CountryDetail viewDetail={viewDetail} updateView={updateView} />;
+  if (country) {
+    return <CountryDetail country={country} updateCountry={updateCountry} />;
   } else {
     return (
       <div className="p-12 ">
@@ -71,7 +71,7 @@ function App() {
           error={countriesError}
           isLoaded={countriesIsLoaded}
           query={query}
-          updateView={updateView}
+          updateCountry={updateCountry}
         />
       </div>
     );
