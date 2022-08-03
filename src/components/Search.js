@@ -1,7 +1,7 @@
 const Search = ({ query, updateQuery, updateRegion }) => (
-  <div className="flex justify-between ">
+  <div className="flex justify-between flex-wrap gap-4">
     <div className="flex items-center text bg-dark-element text-dark-text p-2 rounded-md ">
-      <span class="material-icons px-4 ">search</span>
+      <span class="material-icons pr-2 pl-1 ">search</span>
       <input
         className="bg-transparent focus:outline-none"
         value={query}

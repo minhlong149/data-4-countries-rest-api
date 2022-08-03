@@ -21,7 +21,7 @@ const Countries = ({ countries, error, isLoaded }) => {
 
   if (countries.length > 0)
     return (
-      <div className="grid grid-cols-4 gap-10 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-10 mt-8">
         {countries
           .map((country) => (
             <CountryInfo country={country} key={country.name.common} />
