@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Search } from "./components/Search";
-import { Countries } from "./components/Countries";
+import Search from "./components/Search";
+import Countries from "./components/Countries";
 
 function App() {
   // Fetch the Data from the endpoint all
@@ -36,7 +36,7 @@ function App() {
   const searchParam = ["name", "altSpellings", "translations", "capital"];
   const filterCountries = countries.filter(
     (country) =>
-      (region === "" ? true : country.region === region) &&
+      (region === "" || country.region === region) &&
       searchParam.some(
         (param) =>
           country[param] &&
@@ -50,10 +50,8 @@ function App() {
     getCountriesData();
   }, []);
 
-  console.log(countries.filter((c) => !c.capital));
-
   return (
-    <>
+    <div className="m-8">
       <Search
         query={query}
         updateQuery={updateQuery}
@@ -65,7 +63,7 @@ function App() {
         isLoaded={countriesIsLoaded}
         query={query}
       />
-    </>
+    </div>
   );
 }
 

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
+import CountryInfo from "./CountryInfo";
 
-import { CountryInfo } from "./CountryInfo";
-
-export const Countries = ({ countries, error, isLoaded }) => {
+const Countries = ({ countries, error, isLoaded }) => {
   const [postNum, setPostNum] = useState(8);
   const increasePostNum = () => {
     setPostNum(postNum + 8);
@@ -32,3 +31,5 @@ export const Countries = ({ countries, error, isLoaded }) => {
       </div>
     );
 };
+
+export default Countries;
