@@ -5,6 +5,7 @@ const CountryInfo = ({ country }) => {
         className="rounded-t-md"
         src={country.flags.svg}
         alt={country.name.common + " flag"}
+        loading="lazy"
       />
 
       <div className="p-6 ">
