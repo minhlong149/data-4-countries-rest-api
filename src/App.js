@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Search from "./components/Search";
 import Countries from "./components/Countries";
+import CountryDetail from "./components/CountryDetail";
 
 function App() {
   // Fetch the Data from the endpoint all
@@ -50,21 +51,31 @@ function App() {
     getCountriesData();
   }, []);
 
-  return (
-    <div className="p-12 ">
-      <Search
-        query={query}
-        updateQuery={updateQuery}
-        updateRegion={updateRegion}
-      />
-      <Countries
-        countries={filterCountries}
-        error={countriesError}
-        isLoaded={countriesIsLoaded}
-        query={query}
-      />
-    </div>
-  );
+  const [viewDetail, setViewDetail] = useState(false);
+  const updateView = (country) => {
+    setViewDetail(country);
+  };
+
+  if (viewDetail) {
+    return <CountryDetail viewDetail={viewDetail} updateView={updateView} />;
+  } else {
+    return (
+      <div className="p-12 ">
+        <Search
+          query={query}
+          updateQuery={updateQuery}
+          updateRegion={updateRegion}
+        />
+        <Countries
+          countries={filterCountries}
+          error={countriesError}
+          isLoaded={countriesIsLoaded}
+          query={query}
+          updateView={updateView}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;

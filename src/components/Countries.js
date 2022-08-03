@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CountryInfo from "./CountryInfo";
 
-const Countries = ({ countries, error, isLoaded }) => {
+const Countries = ({ countries, error, isLoaded, updateView }) => {
   const postPerSearch = 8;
   const [postNum, setPostNum] = useState(postPerSearch);
   const increasePostNum = () => {
@@ -33,7 +33,11 @@ const Countries = ({ countries, error, isLoaded }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-10 mt-8">
         {countries
           .map((country) => (
-            <CountryInfo country={country} key={country.name.common} />
+            <CountryInfo
+              country={country}
+              key={country.name.common}
+              updateView={updateView}
+            />
           ))
           .slice(0, postNum)}
         <div className="col-span-full text-center">

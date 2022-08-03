@@ -1,8 +1,9 @@
-const CountryInfo = ({ country }) => {
+const CountryInfo = ({ country, updateView }) => {
   return (
     <div className="bg-dark-element text-dark-text rounded-md">
       <img
-        className="rounded-t-md"
+        className="rounded-t-md cursor-pointer"
+        onClick={() => updateView(country)}
         src={country.flags.svg}
         alt={country.name.common + " flag"}
         loading="lazy"
