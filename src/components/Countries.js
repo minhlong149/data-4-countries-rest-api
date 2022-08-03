@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CountryInfo from "./CountryInfo";
 
 const Countries = ({ countries, error, isLoaded }) => {
-  const [postNum, setPostNum] = useState(8);
+  const postPerSearch = 8;
+  const [postNum, setPostNum] = useState(postPerSearch);
   const increasePostNum = () => {
-    setPostNum(postNum + 8);
+    setPostNum(postNum + postPerSearch);
   };
+
+  useEffect(() => {
+    setPostNum(postPerSearch);
+  }, [countries]);
 
   if (error) {
     return (
