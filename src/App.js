@@ -51,7 +51,7 @@ function App() {
   }, []);
 
   return (
-    <div className="m-8">
+    <div className="p-12 ">
       <Search
         query={query}
         updateQuery={updateQuery}

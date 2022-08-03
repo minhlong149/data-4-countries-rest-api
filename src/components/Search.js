@@ -1,18 +1,18 @@
 const Search = ({ query, updateQuery, updateRegion }) => (
   <div className="flex justify-between ">
-    <div className="flex items-center text bg-dark-element text-dark-text p-2 rounded-lg ">
+    <div className="flex items-center text bg-dark-element text-dark-text p-2 rounded-md ">
       <span class="material-icons px-4 ">search</span>
       <input
         className="bg-transparent focus:outline-none"
         value={query}
         onChange={updateQuery}
-        placeholder="Search for a country"
+        placeholder="Search for a country..."
         type="text"
       />
     </div>
 
     <select
-      className="bg-dark-element text-dark-text focus:outline-none pl-2 rounded-lg"
+      className="bg-dark-element text-dark-text focus:outline-none p-2 rounded-md"
       onChange={updateRegion}
     >
       <option value="">All</option>

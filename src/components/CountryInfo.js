@@ -1,14 +1,14 @@
 const CountryInfo = ({ country }) => {
   return (
-    <div className="bg-dark-element text-dark-text rounded-lg my-4 w-1/4 ">
+    <div className="bg-dark-element text-dark-text rounded-md">
       <img
-        className="rounded-t-lg"
+        className="rounded-t-md"
         src={country.flags.svg}
         alt={country.name.common + " flag"}
       />
 
       <div className="p-6 ">
-        <h2 className="text-lg font-bold ">{country.name.common}</h2>
+        <h2 className="text-xl font-bold pb-2">{country.name.common}</h2>
         <p>
           <b>Population:</b> {country.population.toLocaleString()}{" "}
         </p>

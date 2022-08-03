@@ -21,13 +21,20 @@ const Countries = ({ countries, error, isLoaded }) => {
 
   if (countries.length > 0)
     return (
-      <div>
+      <div className="grid grid-cols-4 gap-10 mt-8">
         {countries
           .map((country) => (
             <CountryInfo country={country} key={country.name.common} />
           ))
           .slice(0, postNum)}
-        <button onClick={increasePostNum}>View more</button>
+        <div className="col-span-full text-center">
+          <button
+            className=" bg-dark-element text-dark-text rounded-md py-3 px-6 "
+            onClick={increasePostNum}
+          >
+            View more
+          </button>
+        </div>
       </div>
     );
 };
