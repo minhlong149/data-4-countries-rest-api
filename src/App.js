@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Search } from "./components/Search";
 import { Countries } from "./components/Countries";
 import { CountryDetail } from "./components/CountryDetail";
+import { Button } from "./components/utils/Button";
 
 function App() {
   // Fetch the Data from the endpoint all
@@ -62,32 +63,50 @@ function App() {
     setCountry(country);
   };
 
-  if (country) {
-    return (
-      <CountryDetail
-        country={country}
-        updateCountry={updateCountry}
-        countries={countries}
-      />
-    );
-  } else {
-    return (
-      <div className="p-12 text-lg md:text-base">
-        <Search
-          query={query}
-          updateQuery={updateQuery}
-          updateRegion={updateRegion}
+  return (
+    <>
+      <header className="flex justify-between bg-dark-element px-20 py-6">
+        <h1 className="font-bold text-2xl ">where in the world?</h1>
+        <Button
+          value={
+            <>
+              <span class="material-icons">dark_mode</span>Dark Mode
+            </>
+          }
         />
-        <Countries
-          countries={filterCountries}
-          error={countriesError}
-          isLoaded={countriesIsLoaded}
-          query={query}
-          updateCountry={updateCountry}
-        />
-      </div>
-    );
-  }
+      </header>
+      <main className="px-20 py-12 text-lg md:text-base">
+        {country ? (
+          <CountryDetail
+            country={country}
+            updateCountry={updateCountry}
+            countries={countries}
+          />
+        ) : (
+          <>
+            <Search
+              query={query}
+              updateQuery={updateQuery}
+              updateRegion={updateRegion}
+            />
+            <Countries
+              countries={filterCountries}
+              error={countriesError}
+              isLoaded={countriesIsLoaded}
+              query={query}
+              updateCountry={updateCountry}
+            />
+          </>
+        )}
+      </main>
+      <footer className="text-center bg-dark-element py-4">
+        © 2022{" "}
+        <a href="https://github.com/minhlong149" target="_blank" rel="noreferrer">
+          Long Nguyen
+        </a>
+      </footer>
+    </>
+  );
 }
 
 export default App;
