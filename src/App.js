@@ -101,8 +101,28 @@ function App() {
       </main>
       <footer className="text-center bg-dark-element py-4">
         © 2022{" "}
-        <a href="https://github.com/minhlong149" target="_blank" rel="noreferrer">
+        <a
+          href="https://github.com/minhlong149"
+          target="_blank"
+          rel="noreferrer"
+        >
           Long Nguyen
+        </a>
+        {" | "}
+        <a
+          href="https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Frontend Mentor
+        </a>{" "}
+        &{" "}
+        <a
+          href="https://fullstackopen.com/en/part2/getting_data_from_server#exercises-2-11-2-14"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Full Stack Open
         </a>
       </footer>
     </>
