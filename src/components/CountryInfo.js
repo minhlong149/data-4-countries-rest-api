@@ -1,4 +1,6 @@
-const CountryInfo = ({ country, updateCountry }) => {
+import { Info } from "./Info";
+
+export default function CountryInfo({ country, updateCountry }) {
   return (
     <div className="bg-dark-element text-dark-text rounded-md">
       <img
@@ -9,20 +11,12 @@ const CountryInfo = ({ country, updateCountry }) => {
         loading="lazy"
       />
 
-      <div className="p-6 ">
+      <div className="p-6">
         <h2 className="text-xl font-bold pb-2">{country.name.common}</h2>
-        <p>
-          <b>Population:</b> {country.population.toLocaleString()}{" "}
-        </p>
-        <p>
-          <b>Region:</b> {country.region}{" "}
-        </p>
-        <p>
-          <b>Capital:</b> {country.capital?.join(", ") || "None"}{" "}
-        </p>
+        <Info text="Population" value={country.population.toLocaleString()} />
+        <Info text="Region" value={country.region} />
+        <Info text="Capital" value={country.capital?.join(", ") || "None"} />
       </div>
     </div>
   );
-};
-
-export default CountryInfo;
+}
