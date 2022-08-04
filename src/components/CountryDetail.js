@@ -16,24 +16,19 @@ export default function CountryDetail({ country, updateCountry, countries }) {
   const languages = Object.entries(country.languages).map((c) => c[1]);
   return (
     <div className="text-dark-text p-12">
-      <button
-        className="flex items-center gap-2 bg-dark-element rounded-md py-2 px-6 mb-8"
-        onClick={() => updateCountry(undefined)}
-      >
-        <span className="material-icons text-base">arrow_back</span>Back
-      </button>
+      <Button updateCountry={updateCountry} country={undefined} />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-x-12 gap-y-6">
+      <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-x-12 gap-y-6">
         <img
           className="rounded-md"
           src={country.flags.svg}
           alt={country.name.common + " flag"}
         />
 
-        <div className="">
-          <h1 className="text-2xl font-bold pb-4">{country.name.common}</h1>
+        <div>
+          <h1 className="text-2xl font-bold ">{country.name.common}</h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
             <div>
               <Info text="Native Name" value={officialNativeName.join(", ")} />
               <Info
@@ -56,24 +51,35 @@ export default function CountryDetail({ country, updateCountry, countries }) {
               <Info text="Currencies" value={currenciesName.join(", ")} />
               <Info text="Languages" value={languages.join(", ")} />
             </div>
+          </div>
 
-            <div className="md:col-span-full md:mt-2">
-              <span>
-                <b>Border Countries:</b>
-              </span>{" "}
-              {borderCountries?.map((country) => (
-                <button
-                  className="bg-dark-element rounded py-1 px-2 my-1 mr-2"
-                  onClick={() => updateCountry(country)}
-                  key={country.name.common}
-                >
-                  {country.name.common}
-                </button>
-              )) || "None"}
-            </div>
+          <div className="">
+            <span>
+              <b>Border Countries:</b>
+            </span>{" "}
+            {borderCountries?.map((country) => (
+              <button
+                className="bg-dark-element rounded py-1 px-2 my-1 mr-2"
+                onClick={() => updateCountry(country)}
+                key={country.name.common}
+              >
+                {country.name.common}
+              </button>
+            )) || "None"}
           </div>
         </div>
       </div>
     </div>
+  );
+}
+
+function Button({ updateCountry, country }) {
+  return (
+    <button
+      className="flex items-center gap-2 bg-dark-element rounded-md py-2 px-6 mb-8"
+      onClick={() => updateCountry(country)}
+    >
+      <span className="material-icons text-base">arrow_back</span>Back
+    </button>
   );
 }
