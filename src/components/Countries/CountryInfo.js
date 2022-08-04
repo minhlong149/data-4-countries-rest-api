@@ -1,6 +1,6 @@
 import { Info } from "../utils/Info";
 
-export default function CountryInfo({ country, updateCountry }) {
+export function CountryInfo({ country, updateCountry }) {
   return (
     <div className="bg-dark-element rounded-md">
       <img

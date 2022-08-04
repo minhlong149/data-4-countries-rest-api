@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CountriesList } from "./Countries/CountriesList";
 import { Button } from "./utils/Button";
 import { Message } from "./utils/Message";
 
-function Countries({ countries, error, isLoaded, updateCountry }) {
+export function Countries({ countries, error, isLoaded, updateCountry }) {
   const postPerSearch = 8;
   const [postNum, setPostNum] = useState(postPerSearch);
   const increasePostNum = () => {
@@ -39,5 +39,3 @@ function Countries({ countries, error, isLoaded, updateCountry }) {
     </div>
   );
 }
-
-export default Countries;

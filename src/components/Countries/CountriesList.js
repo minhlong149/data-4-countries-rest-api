@@ -1,5 +1,4 @@
-import React from "react";
-import CountryInfo from "./CountryInfo";
+import { CountryInfo } from "./CountryInfo";
 
 export function CountriesList({ countries, updateCountry, maxCountries }) {
   return countries

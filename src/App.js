@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import Search from "./components/Search";
-import Countries from "./components/Countries";
-import CountryDetail from "./components/CountryDetail";
+import { useState, useEffect } from "react";
+import { Search } from "./components/Search";
+import { Countries } from "./components/Countries";
+import { CountryDetail } from "./components/CountryDetail";
 
 function App() {
   // Fetch the Data from the endpoint all

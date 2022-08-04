@@ -1,7 +1,7 @@
 import { Button } from "./utils/Button";
 import { Detail } from "./CountryDetail/Detail";
 
-export default function CountryDetail({ country, updateCountry, countries }) {
+export function CountryDetail({ country, updateCountry, countries }) {
   const borderCountries = country.borders?.map((code) =>
     countries.find((country) => country.cca3 === code)
   );
