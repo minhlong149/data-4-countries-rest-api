@@ -63,24 +63,36 @@ function App() {
     setCountry(country);
   };
 
+  const [mode, setMode] = useState("dark");
+  const changeMode = () => {
+    setMode(mode === "light" ? "dark" : "light");
+  };
+
   return (
-    <>
-      <header className="flex justify-between bg-dark-element px-20 py-6">
+    <div className={`bg-${mode}-background text-${mode}-text `}>
+      <header
+        className={`flex justify-between bg-${mode}-element shadow px-20 py-6`}
+      >
         <h1 className="font-bold text-2xl ">where in the world?</h1>
         <Button
+          mode={mode}
+          action={changeMode}
           value={
             <>
-              <span class="material-icons">dark_mode</span>Dark Mode
+              <span className="material-icons">{mode}_mode</span>
+              <span className="first-letter:capitalize">{mode} Mode</span>
+              
             </>
           }
         />
       </header>
-      <main className="px-20 py-12 text-lg md:text-base">
+      <main className="px-20 py-12 text-lg md:text-base ">
         {country ? (
           <CountryDetail
             country={country}
             updateCountry={updateCountry}
             countries={countries}
+            mode={mode}
           />
         ) : (
           <>
@@ -88,6 +100,7 @@ function App() {
               query={query}
               updateQuery={updateQuery}
               updateRegion={updateRegion}
+              mode={mode}
             />
             <Countries
               countries={filterCountries}
@@ -95,11 +108,12 @@ function App() {
               isLoaded={countriesIsLoaded}
               query={query}
               updateCountry={updateCountry}
+              mode={mode}
             />
           </>
         )}
       </main>
-      <footer className="text-center bg-dark-element py-4">
+      <footer className={`text-center bg-${mode}-element py-4`}>
         © 2022{" "}
         <a
           href="https://github.com/minhlong149"
@@ -125,7 +139,7 @@ function App() {
           Full Stack Open
         </a>
       </footer>
-    </>
+    </div>
   );
 }
 

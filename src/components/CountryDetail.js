@@ -1,7 +1,7 @@
 import { Button } from "./utils/Button";
 import { Detail } from "./CountryDetail/Detail";
 
-export function CountryDetail({ country, updateCountry, countries }) {
+export function CountryDetail({ country, updateCountry, countries, mode }) {
   const borderCountries = country.borders?.map((code) =>
     countries.find((country) => country.cca3 === code)
   );
@@ -10,6 +10,7 @@ export function CountryDetail({ country, updateCountry, countries }) {
     <>
       <nav>
         <Button
+          mode={mode}
           action={() => updateCountry(undefined)}
           value={
             <>
@@ -23,6 +24,7 @@ export function CountryDetail({ country, updateCountry, countries }) {
         country={country}
         borderCountries={borderCountries}
         updateCountry={updateCountry}
+        mode={mode}
       />
     </>
   );

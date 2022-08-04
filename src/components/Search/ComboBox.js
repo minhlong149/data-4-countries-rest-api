@@ -1,7 +1,7 @@
-export function ComboBox({ updateRegion }) {
+export function ComboBox({ updateRegion, mode }) {
   return (
     <select
-      className="sm:justify-self-end focus:outline-none bg-dark-element p-2 rounded-md"
+      className={`sm:justify-self-end focus:outline-none bg-${mode}-element shadow p-2 rounded-md`}
       onChange={updateRegion}
     >
       <option value="">All</option>

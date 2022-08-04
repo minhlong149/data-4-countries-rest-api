@@ -1,4 +1,4 @@
-export function BorderList({ countries, updateCountry }) {
+export function BorderList({ countries, updateCountry, mode }) {
   return (
     <div>
       <span>
@@ -6,7 +6,7 @@ export function BorderList({ countries, updateCountry }) {
       </span>{" "}
       {countries?.map((country) => (
         <button
-          className="bg-dark-element rounded py-1 px-2 my-1 mr-2"
+          className={`bg-${mode}-element rounded shadow py-1 px-2 my-1 mr-2`}
           onClick={() => updateCountry(country)}
           key={country.name.common}
         >

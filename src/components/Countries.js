@@ -3,7 +3,7 @@ import { CountriesList } from "./Countries/CountriesList";
 import { Button } from "./utils/Button";
 import { Message } from "./utils/Message";
 
-export function Countries({ countries, error, isLoaded, updateCountry }) {
+export function Countries({ countries, error, isLoaded, updateCountry, mode }) {
   const postPerSearch = 8;
   const [postNum, setPostNum] = useState(postPerSearch);
   const increasePostNum = () => {
@@ -32,9 +32,10 @@ export function Countries({ countries, error, isLoaded, updateCountry }) {
         countries={countries}
         updateCountry={updateCountry}
         maxCountries={postNum}
+        mode={mode}
       />
       <div className="col-span-full justify-self-center">
-        <Button action={increasePostNum} value="View more" />
+        <Button action={increasePostNum} value="View more" mode={mode} />
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import { Info } from "../utils/Info";
 
-export function CountryInfo({ country, updateCountry }) {
+export function CountryInfo({ country, updateCountry, mode }) {
   return (
-    <article className="bg-dark-element rounded-md">
+    <article className={`bg-${mode}-element rounded-md shadow-lg`}>
       <img
-        className="rounded-t-md cursor-pointer"
+        className="rounded-t-md cursor-pointer shadow"
         onClick={() => updateCountry(country)}
         src={country.flags.svg}
         alt={country.name.common + " flag"}
