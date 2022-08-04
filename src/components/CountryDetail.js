@@ -7,7 +7,7 @@ export default function CountryDetail({ country, updateCountry, countries }) {
     (c) => c[1].name
   );
 
-  const borderCountries = country.borders.map((code) =>
+  const borderCountries = country.borders?.map((code) =>
     countries.find((country) => country.cca3 === code)
   );
 
@@ -64,9 +64,9 @@ export default function CountryDetail({ country, updateCountry, countries }) {
 
             <div className="md:col-span-full md:mt-2">
               <span>
-                <b>Border country:</b>
+                <b>Border Countries:</b>
               </span>{" "}
-              {borderCountries.map((country) => (
+              {borderCountries?.map((country) => (
                 <button
                   className="bg-dark-element rounded py-1 px-2 my-1 mr-2"
                   onClick={() => updateCountry(country)}
@@ -74,7 +74,7 @@ export default function CountryDetail({ country, updateCountry, countries }) {
                 >
                   {country.name.common}
                 </button>
-              ))}
+              )) || "None"}
             </div>
           </div>
         </div>
