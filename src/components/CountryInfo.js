@@ -2,7 +2,7 @@ import { Info } from "./Info";
 
 export default function CountryInfo({ country, updateCountry }) {
   return (
-    <div className="bg-dark-element text-dark-text rounded-md">
+    <div className="bg-dark-element rounded-md">
       <img
         className="rounded-t-md cursor-pointer"
         onClick={() => updateCountry(country)}

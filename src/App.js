@@ -72,7 +72,7 @@ function App() {
     );
   } else {
     return (
-      <div className="p-12 ">
+      <div className="p-12 text-lg md:text-base">
         <Search
           query={query}
           updateQuery={updateQuery}

@@ -15,7 +15,7 @@ export default function CountryDetail({ country, updateCountry, countries }) {
 
   const languages = Object.entries(country.languages).map((c) => c[1]);
   return (
-    <div className="text-dark-text p-12">
+    <div className="text-lg md:text-base p-12">
       <Button updateCountry={updateCountry} country={undefined} />
 
       <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-x-12 gap-y-6">
@@ -26,7 +26,7 @@ export default function CountryDetail({ country, updateCountry, countries }) {
         />
 
         <div>
-          <h1 className="text-2xl font-bold ">{country.name.common}</h1>
+          <h1 className="text-2xl font-bold">{country.name.common}</h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
             <div>

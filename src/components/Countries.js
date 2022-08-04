@@ -39,7 +39,7 @@ function Countries({ countries, error, isLoaded, updateCountry }) {
 export default Countries;
 
 function Message({ content }) {
-  return <p className="mt-8 text-dark-text text-center">{content}</p>;
+  return <p className="mt-8 text-center">{content}</p>;
 }
 
 function CountriesList({ countries, updateCountry, maxCountries }) {
@@ -58,7 +58,7 @@ function Button({ action, value }) {
   return (
     <div className="col-span-full text-center">
       <button
-        className="bg-dark-element text-dark-text rounded-md py-2 px-6"
+        className="bg-dark-element rounded-md py-2 px-6"
         onClick={action}
       >
         {value}
