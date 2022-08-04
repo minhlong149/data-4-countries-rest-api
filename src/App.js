@@ -91,5 +91,3 @@ function App() {
 }
 
 export default App;
-
-// https://www.freecodecamp.org/news/search-and-filter-component-in-reactjs/
