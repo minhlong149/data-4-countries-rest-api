@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CountryInfo from "./CountryInfo";
 
-const Countries = ({ countries, error, isLoaded, updateCountry }) => {
+function Countries({ countries, error, isLoaded, updateCountry }) {
   const postPerSearch = 8;
   const [postNum, setPostNum] = useState(postPerSearch);
   const increasePostNum = () => {
@@ -13,43 +13,56 @@ const Countries = ({ countries, error, isLoaded, updateCountry }) => {
   }, [countries]);
 
   if (error) {
-    return (
-      <p className="mt-8 text-dark-text text-center">Error: {error.message}</p>
-    );
+    return <Message content={`Error: ${error.message}`} />;
   }
 
   if (!isLoaded) {
-    return <p className="mt-8 text-dark-text text-center">Loading...</p>;
+    return <Message content="Loading..." />;
   }
 
   if (countries.length === 0) {
-    return (
-      <p className="mt-8 text-dark-text text-center">I found...nothing!!</p>
-    );
+    return <Message content="I found...nothing!!" />;
   }
 
-  if (countries.length > 0)
-    return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-10 mt-8">
-        {countries
-          .map((country) => (
-            <CountryInfo
-              country={country}
-              key={country.name.common}
-              updateCountry={updateCountry}
-            />
-          ))
-          .slice(0, postNum)}
-        <div className="col-span-full text-center">
-          <button
-            className=" bg-dark-element text-dark-text rounded-md py-2 px-6 "
-            onClick={increasePostNum}
-          >
-            View more
-          </button>
-        </div>
-      </div>
-    );
-};
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-10 mt-8">
+      <CountriesList
+        countries={countries}
+        updateCountry={updateCountry}
+        maxCountries={postNum}
+      />
+      <Button action={increasePostNum} value="View more" />
+    </div>
+  );
+}
 
 export default Countries;
+
+function Message({ content }) {
+  return <p className="mt-8 text-dark-text text-center">{content}</p>;
+}
+
+function CountriesList({ countries, updateCountry, maxCountries }) {
+  return countries
+    .map((country) => (
+      <CountryInfo
+        country={country}
+        key={country.name.common}
+        updateCountry={updateCountry}
+      />
+    ))
+    .slice(0, maxCountries);
+}
+
+function Button({ action, value }) {
+  return (
+    <div className="col-span-full text-center">
+      <button
+        className="bg-dark-element text-dark-text rounded-md py-2 px-6"
+        onClick={action}
+      >
+        {value}
+      </button>
+    </div>
+  );
+}
