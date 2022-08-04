@@ -1,4 +1,4 @@
-import { Info } from "../Info";
+import { Info } from "../utils/Info";
 
 export default function CountryInfo({ country, updateCountry }) {
   return (

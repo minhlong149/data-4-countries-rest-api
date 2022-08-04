@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CountriesList } from "./Countries/CountriesList";
+import { Button } from "./utils/Button";
+import { Message } from "./utils/Message";
 
 function Countries({ countries, error, isLoaded, updateCountry }) {
   const postPerSearch = 8;
@@ -31,23 +33,11 @@ function Countries({ countries, error, isLoaded, updateCountry }) {
         updateCountry={updateCountry}
         maxCountries={postNum}
       />
-      <Button action={increasePostNum} value="View more" />
+      <div className="col-span-full justify-self-center">
+        <Button action={increasePostNum} value="View more" />
+      </div>
     </div>
   );
 }
 
 export default Countries;
-
-function Message({ content }) {
-  return <p className="mt-8 text-center">{content}</p>;
-}
-
-function Button({ action, value }) {
-  return (
-    <div className="col-span-full text-center">
-      <button className="bg-dark-element rounded-md py-2 px-6" onClick={action}>
-        {value}
-      </button>
-    </div>
-  );
-}

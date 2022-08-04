@@ -3,7 +3,7 @@ import { BorderList } from "./BorderList";
 
 export function Detail({ country, borderCountries, updateCountry }) {
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-x-12 gap-y-6">
+    <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-x-12 gap-y-6 mt-8">
       <img
         className="rounded-md"
         src={country.flags.svg}
