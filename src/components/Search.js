@@ -1,5 +1,5 @@
-import { ComboBox } from "./ComboBox";
-import { SearchBar } from "./SearchBar";
+import { ComboBox } from "./Search/ComboBox";
+import { SearchBar } from "./Search/SearchBar";
 
 function Search({ query, updateQuery, updateRegion }) {
   return (

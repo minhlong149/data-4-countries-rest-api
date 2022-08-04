@@ -1,4 +1,4 @@
-import { Info } from "./Info";
+import { Info } from "../Info";
 
 export function DetailInfo({ country }) {
   const officialNativeName = Object.values(country.name.nativeName).map(

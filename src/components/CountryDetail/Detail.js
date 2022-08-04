@@ -1,5 +1,5 @@
-import { BorderList } from "./BorderList";
 import { DetailInfo } from "./DetailInfo";
+import { BorderList } from "./BorderList";
 
 export function Detail({ country, borderCountries, updateCountry }) {
   return (

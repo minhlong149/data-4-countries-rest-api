@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CountriesList } from "./CountriesList";
+import { CountriesList } from "./Countries/CountriesList";
 
 function Countries({ countries, error, isLoaded, updateCountry }) {
   const postPerSearch = 8;

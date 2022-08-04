@@ -1,4 +1,4 @@
-import { Detail } from "./Detail";
+import { Detail } from "./CountryDetail/Detail";
 
 export default function CountryDetail({ country, updateCountry, countries }) {
   const borderCountries = country.borders?.map((code) =>
