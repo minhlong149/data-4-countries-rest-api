@@ -1,7 +1,7 @@
 const Search = ({ query, updateQuery, updateRegion }) => (
   <div className="grid grid-cols-1 sm:grid-cols-2  gap-4">
     <div className="justify-self-stretch sm:justify-self-start flex items-center text bg-dark-element text-dark-text p-2 rounded-md ">
-      <span class="material-icons pr-2 pl-1 ">search</span>
+      <span className="material-icons pr-2 pl-1 ">search</span>
       <input
         className="bg-transparent focus:outline-none"
         value={query}

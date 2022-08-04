@@ -34,7 +34,13 @@ function App() {
     setRegion(event.target.value);
   };
 
-  const searchParam = ["name", "altSpellings", "translations", "capital"];
+  const searchParam = [
+    "name",
+    "altSpellings",
+    "translations",
+    "capital",
+    "cca3",
+  ];
   const filterCountries = countries.filter(
     (country) =>
       (region === "" || country.region === region) &&
@@ -57,7 +63,13 @@ function App() {
   };
 
   if (country) {
-    return <CountryDetail country={country} updateCountry={updateCountry} />;
+    return (
+      <CountryDetail
+        country={country}
+        updateCountry={updateCountry}
+        countries={countries}
+      />
+    );
   } else {
     return (
       <div className="p-12 ">
