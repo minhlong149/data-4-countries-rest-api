@@ -7,21 +7,23 @@ export function CountryDetail({ country, updateCountry, countries }) {
   );
 
   return (
-    <div className="text-lg md:text-base p-12">
-      <Button
-        action={() => updateCountry(undefined)}
-        value={
-          <>
-            <span className="material-icons text-base">arrow_back</span>Back
-          </>
-        }
-      />
+    <>
+      <nav>
+        <Button
+          action={() => updateCountry(undefined)}
+          value={
+            <>
+              <span className="material-icons text-base">arrow_back</span>Back
+            </>
+          }
+        />
+      </nav>
 
       <Detail
         country={country}
         borderCountries={borderCountries}
         updateCountry={updateCountry}
       />
-    </div>
+    </>
   );
 }
