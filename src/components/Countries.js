@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CountryInfo from "./CountryInfo";
+import { CountriesList } from "./CountriesList";
 
 function Countries({ countries, error, isLoaded, updateCountry }) {
   const postPerSearch = 8;
@@ -42,25 +42,10 @@ function Message({ content }) {
   return <p className="mt-8 text-center">{content}</p>;
 }
 
-function CountriesList({ countries, updateCountry, maxCountries }) {
-  return countries
-    .map((country) => (
-      <CountryInfo
-        country={country}
-        key={country.name.common}
-        updateCountry={updateCountry}
-      />
-    ))
-    .slice(0, maxCountries);
-}
-
 function Button({ action, value }) {
   return (
     <div className="col-span-full text-center">
-      <button
-        className="bg-dark-element rounded-md py-2 px-6"
-        onClick={action}
-      >
+      <button className="bg-dark-element rounded-md py-2 px-6" onClick={action}>
         {value}
       </button>
     </div>
