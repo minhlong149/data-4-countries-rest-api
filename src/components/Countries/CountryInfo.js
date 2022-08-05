@@ -2,7 +2,11 @@ import { Info } from "../utils/Info";
 
 export function CountryInfo({ country, updateCountry, mode }) {
   return (
-    <article className={`bg-${mode}-element rounded-md shadow-lg`}>
+    <article
+      className={`${
+        mode ? "bg-dark-element" : "bg-light-element"
+      } rounded-md shadow-lg`}
+    >
       <img
         className="rounded-t-md cursor-pointer shadow"
         onClick={() => updateCountry(country)}

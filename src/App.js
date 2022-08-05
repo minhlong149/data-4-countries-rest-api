@@ -63,15 +63,23 @@ function App() {
     setCountry(country);
   };
 
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState(true);
   const changeMode = () => {
-    setMode(mode === "light" ? "dark" : "light");
+    setMode(!mode);
   };
 
   return (
-    <div className={`bg-${mode}-background text-${mode}-text `}>
+    <div
+      className={`${
+        mode
+          ? "bg-dark-background text-dark-text"
+          : "bg-light-background text-light-text"
+      }`}
+    >
       <header
-        className={`flex justify-between bg-${mode}-element shadow px-20 py-6`}
+        className={`flex justify-between ${
+          mode ? "bg-dark-element" : "bg-light-element"
+        } shadow px-20 py-6`}
       >
         <h1 className="font-bold text-2xl ">where in the world?</h1>
         <Button
@@ -79,9 +87,12 @@ function App() {
           action={changeMode}
           value={
             <>
-              <span className="material-icons">{mode}_mode</span>
-              <span className="first-letter:capitalize">{mode} Mode</span>
-              
+              <span className="material-icons">
+                {mode ? "dark_mode" : "light_mode"}
+              </span>
+              <span>
+                {mode ? "Dark Mode" : "Light Mode"}
+              </span>
             </>
           }
         />
@@ -113,7 +124,11 @@ function App() {
           </>
         )}
       </main>
-      <footer className={`text-center bg-${mode}-element py-4`}>
+      <footer
+        className={`text-center ${
+          mode ? "bg-dark-element" : "bg-light-element"
+        } py-4`}
+      >
         © 2022{" "}
         <a
           href="https://github.com/minhlong149"
