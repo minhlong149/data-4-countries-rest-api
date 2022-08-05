@@ -27,7 +27,7 @@ export function Countries({ countries, error, isLoaded, updateCountry, mode }) {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-10 mt-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mt-8">
       <CountriesList
         countries={countries}
         updateCountry={updateCountry}

@@ -74,7 +74,7 @@ function App() {
         mode
           ? "bg-dark-background text-dark-text"
           : "bg-light-background text-light-text"
-      }`}
+      } relative min-h-screen`}
     >
       <header
         className={`flex justify-between ${
@@ -97,7 +97,7 @@ function App() {
           }
         />
       </header>
-      <main className="px-20 py-12 text-lg md:text-base ">
+      <main className="px-20 pt-12 pb-24 text-lg md:text-base ">
         {country ? (
           <CountryDetail
             country={country}
@@ -127,7 +127,7 @@ function App() {
       <footer
         className={`text-center ${
           mode ? "bg-dark-element" : "bg-light-element"
-        } py-4`}
+        } py-4 absolute bottom-0 w-full `}
       >
         © 2022{" "}
         <a
