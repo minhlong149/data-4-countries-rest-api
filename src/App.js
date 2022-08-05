@@ -63,7 +63,10 @@ function App() {
     setCountry(country);
   };
 
-  const [mode, setMode] = useState(true);
+  const darkMode =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [mode, setMode] = useState(darkMode);
   const changeMode = () => {
     setMode(!mode);
   };
