@@ -79,7 +79,7 @@ function App() {
       <header
         className={`flex justify-between ${
           mode ? "bg-dark-element" : "bg-light-element"
-        } shadow px-20 py-6`}
+        } shadow px-12 md:px-20 py-6`}
       >
         <h1 className="font-bold text-2xl ">where in the world?</h1>
         <Button
@@ -90,14 +90,12 @@ function App() {
               <span className="material-icons">
                 {mode ? "dark_mode" : "light_mode"}
               </span>
-              <span>
-                {mode ? "Dark Mode" : "Light Mode"}
-              </span>
+              <span>{mode ? "Dark Mode" : "Light Mode"}</span>
             </>
           }
         />
       </header>
-      <main className="px-20 pt-12 pb-24 text-lg md:text-base ">
+      <main className="px-12 md:px-20 pt-12 pb-24 text-lg md:text-base ">
         {country ? (
           <CountryDetail
             country={country}
